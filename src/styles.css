@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+::selection {
+
+    background:#1bb530;
+    
+    color:#fff;
+    
+    }
+    
+    
+    
+    ::-moz-selection {
+    
+    background:#1bb530;
+    
+    color:#fff;
+    
+    }
+    
+    
+    
+    ::-webkit-selection {
+    
+    background:#1bb530;
+    
+    color:#fff;
+    
+    }
