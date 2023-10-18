@@ -8,6 +8,8 @@
       </h1>
     </div>
 </div>
+
+
 <!-- product section  -->
 <section id="products" class="products">
     <div class="container-fluid">
@@ -129,113 +131,28 @@
         <div class="col-10 mx-auto col-md-7 col-lg-9 my-3">
           <div class="row">
             <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
+      
+
+        <div *ngFor="let product of products" class="col-10 mx-auto col-md-6 col-lg-4">
           <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-7.png" alt="" class="img-fluid">
+            <img src="{{ product.images }}" alt="" class="img-fluid">
             <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
               <i class="fas fa-search"></i>
             </span>
             <a href="#" class="featured-store-link text-capitalize">add to cart</a>
           </div>
           <h6 class="text-capitalize text-center my-2">
-            special product
+            {{ product.name }}
           </h6>
           <h6 class="text-center">
             <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
+            <span>{{ product.price | currency }}</span>
           </h6>
         </div>
+      
         <!-- end of single product -->
         <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-8.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-9.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-10.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-11.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-12.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
+
           </div>
         </div>
         <!-- end of product img -->
@@ -259,110 +176,20 @@
       </div>
       <div class="row">
         <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
+        <div *ngFor="let feature_product of feature_products" class="col-10 mx-auto col-md-6 col-lg-4">
           <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-1.png" alt="" class="img-fluid">
+            <img src="{{feature_product.images}}" alt="" class="img-fluid">
             <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
               <i class="fas fa-search"></i>
             </span>
             <a href="#" class="featured-store-link text-capitalize">add to cart</a>
           </div>
           <h6 class="text-capitalize text-center my-2">
-            special product
+            {{feature_product.name}}
           </h6>
           <h6 class="text-center">
             <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-6.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-2.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-3.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-4.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-5.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
+            <span>{{feature_product.price}}</span>
           </h6>
         </div>
         <!-- end of single product -->
