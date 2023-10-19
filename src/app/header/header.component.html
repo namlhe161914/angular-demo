@@ -22,9 +22,6 @@
             <a routerLink="/products" class="nav-link">Products</a>
           </li>
           <li class="nav-item mx-2"  routerLinkActive="nav-active">
-            <a routerLink="/singleproduct" class="nav-link">Single Product</a>
-          </li>
-          <li class="nav-item mx-2"  routerLinkActive="nav-active">
             <a routerLink="/store" class="nav-link">Store</a>
           </li>
         </ul>
@@ -42,5 +39,27 @@
       </div>
     </nav>
     <!-- end of navbar -->
+    <div class="ng-autocomplete">
+      <ng-autocomplete
+      *ngIf="products" [data]="products"
+        [searchKeyword]="keyword"
+        placeholder="Enter the product's name"
+        (selected)='selectEvent($event)'
+        (inputChanged)='onChangeSearch($event)'
+        (inputFocused)='onFocused($event)'
+        historyIdentifier="products"
+        [itemTemplate]="itemTemplate"
+        [notFoundTemplate]="notFoundTemplate">
+      </ng-autocomplete>
+    
+      <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.name"></a>
+      </ng-template>
+    
+      <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+    </div>
+    <br>
   </header>
   <!-- end of header section -->

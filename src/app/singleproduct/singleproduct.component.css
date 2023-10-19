@@ -1,0 +1,9 @@
+.simgle-product-photos {
+    display: flex;
+    flex-wrap: nowrap; /* Ngăn ngừng xuống dòng khi không đủ không gian */
+  }
+  
+  .single-product-photo {
+    flex: 0 0 auto; /* Không đổi kích thước của hình ảnh */
+  }
+  

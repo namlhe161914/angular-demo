@@ -135,14 +135,14 @@
 
         <div *ngFor="let product of products" class="col-10 mx-auto col-md-6 col-lg-4">
           <div class="featured-container p-5">
-            <img src="{{ product.images }}" alt="" class="img-fluid">
+            <a routerLink="/product/{{product._id}}"><img src="{{ product.images }}" alt="" class="img-fluid"></a>
             <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
               <i class="fas fa-search"></i>
             </span>
             <a href="#" class="featured-store-link text-capitalize">add to cart</a>
           </div>
           <h6 class="text-capitalize text-center my-2">
-            {{ product.name }}
+            {{ product.name }}  
           </h6>
           <h6 class="text-center">
             <span class="text-muted old-price mx-2">$200</span>
