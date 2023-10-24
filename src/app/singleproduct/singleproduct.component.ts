@@ -1,6 +1,6 @@
 import { Component, OnInit, ɵisSubscribable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../product/product.service';
+import { ProductService } from '../data/product.service';
 
 @Component({
   selector: 'app-singleproduct',

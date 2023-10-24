@@ -137,7 +137,13 @@
           <div class="featured-container p-5">
             <a routerLink="/product/{{product._id}}"><img src="{{ product.images }}" alt="" class="img-fluid"></a>
             <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
+              <!-- <i class="fas fa-search"></i> -->
+              <button (click)="handleClick(product._id)" style=" background: none;
+              border: none;
+              padding: 0;
+              cursor: pointer;">
+                <i class="fas fa-search"></i>
+              </button>            
             </span>
             <a href="#" class="featured-store-link text-capitalize">add to cart</a>
           </div>
@@ -363,3 +369,71 @@
     </div>
   </section>
   <!-- end of skills section -->
+
+    <!-- modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" *ngIf="productInfo">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- modal header -->
+          <div class="modal-header">
+            <h5 class="modal-title text-capitalize">product info</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!--end of  modal header -->
+          <!-- modal body -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col text-center">
+                <img src="{{productInfo.images}}" class="img-fluid" alt="" />
+                <!-- ratings -->
+                <div class="ratings">
+                  <span class="rating-icon"><i class="fas fa-star"></i></span>
+                  <span class="rating-icon"><i class="fas fa-star"></i></span>
+                  <span class="rating-icon"><i class="fas fa-star"></i></span>
+                  <span class="rating-icon"><i class="fas fa-star"></i></span>
+                  <span class="rating-icon"><i class="far fa-star"></i></span>
+                  <span class="text-capitalize">(25 customer reviews)</span>
+                </div>
+                <!-- end of ratings -->
+                <h2 class="text-uppercase my-2">{{productInfo.name}}</h2>
+                <h2>{{productInfo.price}} $</h2>
+                <p class="lead text-muted">
+                  {{productInfo.description}}
+                </p>
+                <!-- colors -->
+                <h5 class="text-uppercase">
+                  colors :
+                  <span class="d-inline-block products-color products-color-black mr-2"></span>
+                  <span class="d-inline-block products-color products-color-red mr-2"></span>
+                  <span class="d-inline-block products-color products-color-blue mr-2"></span>
+                </h5>
+                <!-- end of colors -->
+                <!-- sizes -->
+                <h5 class="text-uppercase">
+                  sizes : <span class="mx-2">xs</span> <span class="mx-2">s</span>
+                  <span class="mx-2">m</span> <span class="mx-2">l</span>
+                  <span class="mx-2">xl</span>
+                </h5>
+                <div class="d-flex flex-wrap">
+                  <!-- cart buttons -->
+                  <div class="d-flex my-2">
+                    <span class="btn btn-black mx-1">-</span>
+                    <span class="btn btn-black mx-1">4</span>
+                    <span class="btn btn-black mx-1">+</span>
+                  </div>
+                  <button class="btn btn-black my-2 mx-2">wishlist</button>
+                  <button class="btn btn-yellow my-2 mx-2">add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end modal body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of modal -->

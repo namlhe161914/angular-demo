@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product/product.service';
-import { Products } from '../product/products.interface';
+import { ProductService } from '../data/product.service';
+import { Products } from '../data/products.interface';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data: any) => {
-      this.products = data.results.slice(0, 6); // Lấy 6 phần tử đầu tiên
+      this.products = data; // Lấy 6 phần tử đầu tiên
       // console.log(this.products);
     });
   }
