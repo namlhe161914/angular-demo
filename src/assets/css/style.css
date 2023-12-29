@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Calligraffitti|Mali");
 /* ganeral style */
 :root {
-  --mainYellow: #fdbe02;
+  /* --mainYellow: #fdbe02; */
+  --mainYellow: #1bb530;
   --mainWhite: #fff;
   --mainBlack: #071013;
   --mainGrey: #9b9999;
@@ -39,7 +40,7 @@ body {
     color: var(--mainYellow);
 }
 .banner-product{
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../img/pageBcg/productsBcg.jpeg) center/cover fixed no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../img/pageBcg/bambooBannerProv2.jpg) center/cover fixed no-repeat;
     min-height: 60vh;
 }
 .banner-single-product{
@@ -90,7 +91,7 @@ body {
 /* banner */
 .banner{
     min-height: calc(100vh - 101px);
-    background: url(../img/pageBcg/bannerBcg.jpeg);
+    background: url(../img/pageBcg/bambooBannerHomev2.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
   private apiUrl = 'http://127.0.0.1:1880/product/all';
 
@@ -22,6 +23,20 @@ export class ProductService {
 
   getProductById(id : any){
     return this.http.get("http://127.0.0.1:1880/product/" + id);
+  }
+
+  localAddToCart(data: Products) {
+    let cartData = [];
+    let localCart = localStorage.getItem('localCart');
+    if (!localCart) {
+      localStorage.setItem('localCart', JSON.stringify([data]));
+      // this.cartData.emit([data]);
+    } else {
+      cartData = JSON.parse(localCart);
+      cartData.push(data);
+      localStorage.setItem('localCart', JSON.stringify(cartData));
+      // this.cartData.emit(cartData);
+    }
   }
 
 }

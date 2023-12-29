@@ -1,10 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { cart, priceSummary } from '../services/products.interface';
+import { ProductService } from '../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css']
 })
-export class StoreComponent {
+export class StoreComponent implements OnInit {
+  cartData: cart[] | any;
+  priceSummary: priceSummary = {
+    price: 0,
+    discount: 0,
+    tax: 10,
+    delivery: 0,
+    total: 0
+  }
+  results: any;
 
+  constructor(private product: ProductService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.loadDetails()
+  }
+
+  loadDetails(){
+    const localCardString = localStorage.getItem('localCart');
+    let totalPrice = 0;
+    if (localCardString) {
+      this.cartData = JSON.parse(localCardString);
+
+      console.log('Giá trị từ localStorage:', this.cartData);
+      this.cartData.forEach((item: { quantity: number, price: number }) => {
+        if (item.quantity && item.price) {
+          totalPrice += item.price * item.quantity;
+        }
+      });
+        this.priceSummary.total = totalPrice;
+      }
+    }
+
+  
 }

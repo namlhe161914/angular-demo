@@ -60,12 +60,12 @@
             {{ product.description }}
           </p>
           <!-- colors -->
-          <h5 class="text-uppercase">
+          <!-- <h5 class="text-uppercase">
             colors:
             <span class="d-inline-block products-color products-color-black mr-2"></span>
             <span class="d-inline-block products-color products-color-blue mr-2"></span>
             <span class="d-inline-block products-color products-color-green mr-2"></span>
-          </h5>
+          </h5> -->
           <!-- end of colors -->
           <!-- size -->
           <h5 class="text-uppercase product-size">
@@ -73,17 +73,21 @@
           </h5>
           <!-- end of size -->
           <!-- cart buttons -->
-          <div class="d-flex my-2">
+          <!-- <div class="d-flex my-2">
             <span class="btn btn-black mx-1">-</span>
             <span class="btn btn-black mx-1">4</span>
             <span class="btn btn-black mx-1">+</span>
-          </div>
-          <button class="btn btn-black my-2 mx-2">
-            Wishlist
-          </button>
-          <button class="btn btn-yellow my-2 mx-2">
+          </div> -->
+
+          <!-- <button class="btn btn-yellow my-2 mx-2">
             Add To Cart
-          </button>
+          </button> -->
+          <button  class="btn btn-yellow my-2 mx-2" (click)="addToCart()">Add to Cart</button>
+          <div class="quantity-group">
+              <button class="btn btn-black mx-1" (click)="handleQuantity('min')" >-</button>
+              <input class="btn btn-black mx-1" type="text" value="{{productQuantity}}" />
+              <button class="btn btn-black mx-1" (click)="handleQuantity('plus')">+</button>
+          </div>
           <!-- end of cart buttons -->
         </div>
       </div>

@@ -28,7 +28,8 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

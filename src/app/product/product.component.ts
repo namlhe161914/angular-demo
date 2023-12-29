@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../data/product.service';
-import { Products } from '../data/products.interface';
+import { ProductService } from '../services/product.service';
+import { Products } from '../services/products.interface';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -12,15 +12,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
   products: Products[] | undefined;
-  feature_products : any[] | undefined;
-  pId : any;
+  feature_products: any[] | undefined;
+  pId: any;
   productInfo: any | undefined;
-
+  
+  product: any | Products; 
+  productQuantity: number = 1;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data: any) => {
-      this.products = data; // Lấy 6 phần tử đầu tiên
+      this.products = data; 
       console.log(this.products);
     });
 
@@ -29,7 +31,6 @@ export class ProductComponent implements OnInit {
       // console.log(this.feature_products);
     });
 
-    
   }
 
   async handleClick(productId: any) {
@@ -37,15 +38,29 @@ export class ProductComponent implements OnInit {
       this.pId = productId;
       this.getProductById(this.pId);
     }
-    
-    
   }
 
-  async getProductById(id : any){
-    this.productService.getProductById(id).subscribe((res : any) =>{
+  async getProductById(id: any) {
+    this.productService.getProductById(id).subscribe((res: any) => {
       this.productInfo = res;
     })
   }
-    
+
+  handleQuantity(val: string) {
+    if (this.productQuantity < 20 && val === 'plus') {
+      this.productQuantity += 1;
+    } else if (this.productQuantity > 1 && val === 'min') {
+      this.productQuantity -= 1;
+    }
+  }
+  
+  addToCart() {
+    this.product.quantity = this.productQuantity;
+    if (!localStorage.getItem('user')) {
+      this.productService.localAddToCart(this.product);
+    }
+    console.log(this.productInfo.quantity);
+  }
+
 
 }
