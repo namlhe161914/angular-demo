@@ -43,11 +43,27 @@ export class SingleproductComponent implements OnInit {
   addToCart() {
     if (this.product) {
       this.product.quantity = this.productQuantity;
-      if(!localStorage.getItem('user')){
-        this.productService.localAddToCart(this.product);
+  
+      if (!localStorage.getItem('user')) {
+        const localCartString = localStorage.getItem('localCart');
+        
+        if (localCartString) {
+          const localCart = JSON.parse(localCartString);
+          const existingProduct = localCart.find((item: { name: string }) => item.name === this.product.name);
+  
+          if (existingProduct) {
+            existingProduct.quantity += this.productQuantity;
+          } else {
+            localCart.push(this.product);
+          }
+            localStorage.setItem('localCart', JSON.stringify(localCart));
+        } else {
+          localStorage.setItem('localCart', JSON.stringify([this.product]));
+        }
       }
     }
   }
+  
 
 
 }
