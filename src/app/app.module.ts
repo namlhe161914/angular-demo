@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
@@ -31,7 +32,8 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     AutocompleteLibModule,
 
   ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/angular-demo/' },
+  { provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
