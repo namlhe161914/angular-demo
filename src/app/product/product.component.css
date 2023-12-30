@@ -1,0 +1,22 @@
+.success-popup {
+    position: fixed;
+    top: 20px; /* Đặt top là 20px để nó ở trên cùng */
+    right: 20px;
+    background-color: #43a047; /* Màu xanh lá cây đậm */
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeInOut 0.1s forwards;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

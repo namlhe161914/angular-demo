@@ -15,15 +15,15 @@ export class ProductComponent implements OnInit {
   feature_products: any[] | undefined;
   pId: any;
   productInfo: any | undefined;
-  
-  product: any | Products; 
+
+  product: any | Products;
   productQuantity: number = 1;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data: any) => {
-      this.products = data; 
-      console.log(this.products);
+      this.products = data;
+      // console.log(this.products);
     });
 
     this.productService.getfeatureProducts().subscribe((data: any) => {
@@ -53,13 +53,48 @@ export class ProductComponent implements OnInit {
       this.productQuantity -= 1;
     }
   }
-  
-  addToCart() {
-    this.product.quantity = this.productQuantity;
-    if (!localStorage.getItem('user')) {
-      this.productService.localAddToCart(this.product);
+
+  showSuccessPopup: boolean = false;
+
+  addToCart(val: string) {
+    // gan gia tri cho product (id, name,...)
+    this.productService.getProductById(val).subscribe((res: any) => {
+      this.product = res;
+    })
+    // thay doi gia tri quantity
+    if (this.product) {
+      this.product.quantity = this.productQuantity;
+
+      const localCartString = localStorage.getItem('localCart');
+
+      if (localCartString) {
+        const localCart = JSON.parse(localCartString);
+        const existingProduct = localCart.find((item: { name: string }) => item.name === this.product.name);
+
+        if (existingProduct) {
+          existingProduct.quantity += this.productQuantity;
+        } else {
+          localCart.push(this.product);
+        }
+
+        localStorage.setItem('localCart', JSON.stringify(localCart));
+
+        this.showSuccessPopup = true;
+        setTimeout(() => {
+          this.showSuccessPopup = false;
+        }, 1000);
+      } else {
+        localStorage.setItem('localCart', JSON.stringify([this.product]));
+
+        this.showSuccessPopup = true;
+        setTimeout(() => {
+          this.showSuccessPopup = false;
+        }, 1000);
+      }
+
     }
-    console.log(this.productInfo.quantity);
+
+    
   }
 
 

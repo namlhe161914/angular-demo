@@ -61,7 +61,6 @@ export class SingleproductComponent implements OnInit {
 
           localStorage.setItem('localCart', JSON.stringify(localCart));
 
-          // Hiển thị popup thành công
           this.showSuccessPopup = true;
           setTimeout(() => {
             this.showSuccessPopup = false;

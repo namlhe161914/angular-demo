@@ -131,7 +131,7 @@
                 </button>
               </span>
               <!-- <a href="#" class="featured-store-link text-capitalize">add to cart123</a> -->
-              <button class="featured-store-link text-capitalize" (click)="addToCart()">add to cart</button>
+              <button class="featured-store-link text-capitalize" (click)="addToCart(product._id)">add to cart</button>
 
             </div>
             <h6 class="text-capitalize text-center my-2">
@@ -354,10 +354,10 @@
             </p>
             <!-- colors -->
             <h5 class="text-uppercase">
-              colors :
+              <!-- colors :
               <span class="d-inline-block products-color products-color-black mr-2"></span>
               <span class="d-inline-block products-color products-color-red mr-2"></span>
-              <span class="d-inline-block products-color products-color-blue mr-2"></span>
+              <span class="d-inline-block products-color products-color-blue mr-2"></span> -->
             </h5>
             <!-- end of colors -->
             <!-- sizes -->
@@ -369,11 +369,11 @@
             <div class="d-flex flex-wrap">
               <!-- cart buttons -->
               <div class="d-flex my-2">
-                <button class="btn btn-black mx-1" (click)="handleQuantity('min')" >-</button>
+                <!-- <button class="btn btn-black mx-1" (click)="handleQuantity('min')" >-</button>
                 <input class="btn btn-black mx-1" type="text" value="{{productQuantity}}" />
-                <button class="btn btn-black mx-1" (click)="handleQuantity('plus')">+</button>
+                <button class="btn btn-black mx-1" (click)="handleQuantity('plus')">+</button> -->
               </div>
-              <button class="btn btn-yellow my-2 mx-2" (click)="addToCart()">add to cart</button>
+              <!-- <button class="btn btn-yellow my-2 mx-2" (click)="addToCart(product._id)">add to cart</button> -->
             </div>
           </div>
         </div>
@@ -386,3 +386,8 @@
   </div>
 </div>
 <!-- end of modal -->
+
+<!-- message pop-up -->
+<div id="success-popup" class="success-popup" *ngIf="showSuccessPopup">
+  <span class="message">Add to cart Sucess!</span>
+</div>

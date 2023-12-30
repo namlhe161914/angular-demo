@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data: any) => {
-      this.products = data; // Lấy 6 phần tử đầu tiên
+      this.products = data; 
       // console.log(this.products);
     });
 
