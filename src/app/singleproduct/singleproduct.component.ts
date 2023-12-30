@@ -40,30 +40,44 @@ export class SingleproductComponent implements OnInit {
     }
   }
 
+  showSuccessPopup: boolean = false;
+
   addToCart() {
     if (this.product) {
       this.product.quantity = this.productQuantity;
-  
+
       if (!localStorage.getItem('user')) {
         const localCartString = localStorage.getItem('localCart');
         
         if (localCartString) {
           const localCart = JSON.parse(localCartString);
           const existingProduct = localCart.find((item: { name: string }) => item.name === this.product.name);
-  
+
           if (existingProduct) {
             existingProduct.quantity += this.productQuantity;
           } else {
             localCart.push(this.product);
           }
-            localStorage.setItem('localCart', JSON.stringify(localCart));
+
+          localStorage.setItem('localCart', JSON.stringify(localCart));
+
+          // Hiển thị popup thành công
+          this.showSuccessPopup = true;
+          setTimeout(() => {
+            this.showSuccessPopup = false;
+          }, 1000); 
         } else {
           localStorage.setItem('localCart', JSON.stringify([this.product]));
+
+          
+          this.showSuccessPopup = true;
+          setTimeout(() => {
+            this.showSuccessPopup = false;
+          }, 1000); 
         }
       }
     }
   }
-  
 
 
 }
