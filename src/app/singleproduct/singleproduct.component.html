@@ -131,130 +131,7 @@
   <!-- end of single product info -->
 
   <!-- featured section -->
-  <section id="featured" class="featured py-5">
-    <div class="container">
-      <div class="row my-3">
-        <div class="col-10 mx-auto text-center">
-          <h1 class="text-uppercase">
-            featured products
-          </h1>
-          <p class="text-muted">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, deleniti?
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-1.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-6.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-2.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-3.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-4.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-        <!-- single product -->
-        <div class="col-10 mx-auto col-md-6 col-lg-4">
-          <div class="featured-container p-5">
-            <img src="assets/img/img-products/product-5.png" alt="" class="img-fluid">
-            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-              <i class="fas fa-search"></i>
-            </span>
-            <a href="#" class="featured-store-link text-capitalize">add to cart</a>
-          </div>
-          <h6 class="text-capitalize text-center my-2">
-            special product
-          </h6>
-          <h6 class="text-center">
-            <span class="text-muted old-price mx-2">$200</span>
-            <span>$100</span>
-          </h6>
-        </div>
-        <!-- end of single product -->
-      </div>
-    </div>
-  </section>
+
   <!-- end of featured section -->
 
   <!-- partners -->
@@ -424,3 +301,7 @@
   </section>
   <!-- end of skills section -->
 
+<!-- Trong component HTML của bạn -->
+<div id="success-popup" class="success-popup" *ngIf="showSuccessPopup">
+  <span class="message">Add to cart Sucess!</span>
+</div>

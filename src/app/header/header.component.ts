@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Products } from '../services/products.interface';
 import { ActivatedRoute } from '@angular/router';
-
+import { CartService } from '../services/cart.service'; 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,12 +15,18 @@ export class HeaderComponent implements OnInit{
   keyword = 'name';
   products: Products[] | undefined;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute ) { }
+  public cartCount: number = 0;
+
+  constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: CartService ) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data: any) => {
       this.products = data; // Lấy 6 phần tử đầu tiên
       // console.log(this.products);
+    });
+
+    this.cartService.getCount().subscribe(count => {
+      this.cartCount = count;
     });
   }
     selectEvent(item: any) {

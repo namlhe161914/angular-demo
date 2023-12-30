@@ -18,11 +18,21 @@ export class StoreComponent implements OnInit {
     total: 0
   }
   results: any;
+  productQuantity: number = 1;
 
   constructor(private product: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadDetails()
+  }
+
+  handleQuantity(val: string) {
+    this.productQuantity = this.cartData.quantity;
+    if (this.productQuantity < 100 && val === 'plus') {
+      this.productQuantity += 1;
+    } else if (this.productQuantity > 1 && val === 'min') {
+      this.productQuantity -= 1;
+    }
   }
 
   loadDetails(){
